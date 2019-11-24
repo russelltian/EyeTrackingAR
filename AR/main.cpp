@@ -56,28 +56,32 @@ void send_point( int new_socket, int x, int y ) {
   
 }
 
-Point_<int> findNearestPoint(Point_<float>center,Point_<float>input){
-
-    Point_<int> ret;
-
-    Point_<float> diff = input - center;
-    double dist_to_point = cv::norm(diff);
-    if(diff.x > 6){
-        ret.x = 0;
-    }else if (diff.x < -6){
-        ret.x = 2;
-    }else {
-        ret.x = 1;
+int findNearestPointCartesianCV(vector<Point_<float>> &input,Point_<float> point){
+    double distance = INT_MAX;
+    int closest_point_idx = 0;
+    int count = 0;
+    for(auto &i : input){
+        double dist_to_point = cv::norm(i - point);
+        closest_point_idx = dist_to_point < distance ? count : closest_point_idx;
+        distance = dist_to_point < distance ? dist_to_point : distance;
+        count++;
     }
+    return closest_point_idx;
+}
 
-    if(diff.y > 6){
-        ret.y = 0;
-    }else if (diff.y < -6){
-        ret.y = 2;
-    }else {
-        ret.y = 1;
-    }
-    return ret;
+void find_calibration_points_by_pupil_keypoints (vector<Point_<float>>&pupil_keypoints,vector<Point_<float>>& calibration_points){
+  //go over all pupil keypoints and determine a singlur one
+  float mean_x = 0;
+  float mean_y = 0;
+  float sum_x = 0;
+  float sum_y = 0;
+  for(auto &i : pupil_keypoints){
+    sum_x += i.x;
+    sum_y += i.y;
+  }
+  mean_x = sum_x/int(pupil_keypoints.size());
+  mean_y = sum_y/int(pupil_keypoints.size());
+  calibration_points.push_back(Point_<float>(mean_x, mean_y));
 }
 
 int main(int argc, char *argv[])
@@ -89,9 +93,23 @@ int main(int argc, char *argv[])
     int addrlen = sizeof(address); 
     char buffer[1024] = {0}; 
 
-    bool calibration_phase = true;
-    vector<vector<Point_<int>>> cali_map(3,vector<Point_<int>>());
+    bool calibrating = false;
+    vector<Point_<int>> cali_map;
+    int curr_display_idx = 0;
+    int count_stored_keypoints = 0;
+    bool working = false;
+
+    vector<Point_<float>> stored_pupil_keypoints(10);
+
+
+    for(int i = -2; i<=2;i++){
+        for(int j = -2; j<=2;j++){
+            cali_map.push_back(Point_<int>(300,500) + Point_<int>(i*50,j*50));
+        }
+    }
+
     Point_<float> center;
+    vector<Point_<float>> calibration_points;
 
     bool online = argc > 1;
     if(online){
@@ -250,32 +268,49 @@ int main(int argc, char *argv[])
 	if(!pupil_keypoints.empty() ){
 	    KeyPoint & kpt = pupil_keypoints.front();
 
-        if(calibration_phase){
-            send_point(new_socket,300, 500);
-        }
-        else if(online){
-
-            Point_<int> target = findNearestPoint(center,kpt.pt);
-
-            send_point(new_socket, cali_map[target.x][target.y].x,cali_map[target.x][target.y].y );        
-            // send_point(new_socket,kpt.pt.x, kpt.pt.y);
-        } 
+         
 	    
 	    cout<<"x:"<<kpt.pt.x<<"y:"<<kpt.pt.y<<"num"<<pupil_keypoints.size()<<endl;
         
         char key = waitKey(30);
-        if( key == 'q') break;
-        else if(key == 'c'){
-            calibration_phase = !calibration_phase;
-            center = kpt.pt;
-            for(int i = 0; i<=2;i++){
-                // cali_map.push_back(vector<Point_<int>>());
-                for(int j = 0; j<=2;j++){
-                    cali_map[i].push_back(Point_<int>(300,500) + Point_<int>((i-1)*200,(j-1)*200));
-                }
-            }
 
-        } 
+        
+
+        if (calibrating) {
+          if (count_stored_keypoints == 10){
+            calibrating = false;
+            find_calibration_points_by_pupil_keypoints(stored_pupil_keypoints, calibration_points);
+            count_stored_keypoints = 0;
+            curr_display_idx++;
+            
+          }else{
+            stored_pupil_keypoints[count_stored_keypoints] = kpt.pt;
+            cout<<"calibrating point "<<curr_display_idx<<"count "<<count_stored_keypoints<<endl;
+            count_stored_keypoints++;
+          }
+
+        }
+        if( key == 'c') {
+          calibrating = true;
+          count_stored_keypoints = 0;
+        }
+        else if( key == 'w') {
+          working = true;
+        }else if( key == 'q') break;
+
+
+
+        if (working) {
+            int idx  = findNearestPointCartesianCV(calibration_points,kpt.pt);
+            curr_display_idx = idx;
+        }
+        
+        if(online){
+
+            
+            if(curr_display_idx < cali_map.size()) send_point(new_socket, cali_map[curr_display_idx].x,cali_map[curr_display_idx].y );        
+            // // send_point(new_socket,kpt.pt.x, kpt.pt.y);
+        }
 
 
         
@@ -291,3 +326,4 @@ int main(int argc, char *argv[])
 // cv::VideoCapture cap("http://pi.local:5000/stream/video.mjpeg"); 
 // sudo service uv4l_raspicam restart
 // /etc/uv4l/uv4l-raspicam
+//sudo shutdown -h now
