@@ -15,7 +15,7 @@ unordered_map<int_pair, int_pair, boost::hash<int_pair>> config::load(const stri
     
 
     if(!i_stream.is_open()){
-        cout<<"source json file read error"<<endl;
+        cout<<"source config file read error"<<endl;
         return map;
     }
 
@@ -41,15 +41,17 @@ unordered_map<int_pair, int_pair, boost::hash<int_pair>> config::load(const stri
     cerr << "Fooey!\n";
     }
 
-    for(auto it: map){
-        cout<<it.first.first<<" "<<it.first.second<<" "<<it.second.first<<" "<<it.second.second<<" "<<endl;
-    }
+    // for(auto it: map){
+    //     cout<<it.first.first<<" "<<it.first.second<<" "<<it.second.first<<" "<<it.second.second<<" "<<endl;
+    // }
 
 
     return map;
 }
 
 bool config::insert(int_pair first, int_pair second){
+
+    if(map.find(first)!= map.end()) cout<<"overwriting"<<endl;
 
     map[first] = second;
 

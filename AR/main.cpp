@@ -4,6 +4,7 @@
 
 #include <sys/socket.h> 
 #include <netinet/in.h> 
+#include <arpa/inet.h>
 
 
 using namespace cv;
@@ -104,7 +105,7 @@ int main(int argc, char *argv[])
 
     for(int i = -2; i<=2;i++){
         for(int j = -2; j<=2;j++){
-            cali_map.push_back(Point_<int>(300,500) + Point_<int>(i*50,j*50));
+            cali_map.push_back(Point_<int>(300,500) + Point_<int>(i*80,j*80));
         }
     }
 
@@ -127,10 +128,10 @@ int main(int argc, char *argv[])
         //     exit(EXIT_FAILURE); 
         // } 
         address.sin_family = AF_INET; 
-        address.sin_addr.s_addr = INADDR_ANY; 
-        address.sin_port = htons( 5000 ); 
+        address.sin_addr.s_addr = inet_addr("127.0.0.1"); //server ip INADDR_ANY
+        address.sin_port = htons( 50000 ); 
         
-        cout<<"here here"<<endl;
+        cout<<"waiting for connection"<<endl;
         // Forcefully attaching socket to the port 8080 
         if (::bind(server_fd, (struct sockaddr *)&address,sizeof(address))<0) 
         { 
@@ -148,11 +149,7 @@ int main(int argc, char *argv[])
             perror("accept"); 
             exit(EXIT_FAILURE); 
         } 
-        // valread = read( new_socket , buffer, 1024); 
-        // printf("%s\n",buffer ); 
-        // send(new_socket , hello , strlen(hello) , 0 ); 
-        // printf("Hello message sent\n"); 
-        cout<<"exiting"<<endl;
+        cout<<"continuing"<<endl;
     }
     
 
@@ -160,7 +157,7 @@ int main(int argc, char *argv[])
 
     //CV part
 
-    VideoCapture cap("http://pi.local:5000/stream/video.mjpeg"); // open the default camera
+    VideoCapture cap("http://192.100.1.2:5000/stream/video.mjpeg"); // open the streaming camera http://pi.local:5000/stream/video.mjpeg
     if(!cap.isOpened())  // check if we succeeded
         return -1;
 
@@ -226,7 +223,7 @@ int main(int argc, char *argv[])
 	
 	
 	
-        cvtColor(small_frame, small_frame, COLOR_BGR2GRAY);
+        // cvtColor(small_frame, small_frame, COLOR_BGR2GRAY);
 	
 	GaussianBlur(small_frame, small_frame, Size(5,5), 1.5, 1.5);
 	
@@ -237,12 +234,13 @@ int main(int argc, char *argv[])
 	
 	std::vector<KeyPoint> pupil_keypoints;
 	std::vector<KeyPoint> ref_keypoints;
+
 	left_pupil.detect( small_frame, pupil_keypoints);
 	
 	//detect reflection
 	Mat binarizedImage;
 	threshold(small_frame, binarizedImage, canny_threshold, 255, THRESH_BINARY);
-	imshow("reflection", binarizedImage);
+	// imshow("reflection", binarizedImage);
 	
 	// Draw detected blobs as red circles.
 	// DrawMatchesFlags::DRAW_RICH_KEYPOINTS flag ensures the size of the circle corresponds to the size of blob
@@ -263,7 +261,13 @@ int main(int argc, char *argv[])
 	}
     */
 	// Show blobs
-	imshow("keypoints", im_with_keypoints );
+    if(pupil_keypoints.empty()){
+        imshow("keypoints", small_frame );
+    }else{
+	    imshow("keypoints", im_with_keypoints );
+    }
+
+    char key = waitKey(30);
 	
 	if(!pupil_keypoints.empty() ){
 	    KeyPoint & kpt = pupil_keypoints.front();
@@ -271,9 +275,6 @@ int main(int argc, char *argv[])
          
 	    
 	    cout<<"x:"<<kpt.pt.x<<"y:"<<kpt.pt.y<<"num"<<pupil_keypoints.size()<<endl;
-        
-        char key = waitKey(30);
-
         
 
         if (calibrating) {
@@ -296,7 +297,7 @@ int main(int argc, char *argv[])
         }
         else if( key == 'w') {
           working = true;
-        }else if( key == 'q') break;
+        }
 
 
 
@@ -315,6 +316,7 @@ int main(int argc, char *argv[])
 
         
 	}
+    if( key == 'q') break;
         
     }
     // the camera will be deinitialized automatically in VideoCapture destructor
@@ -326,4 +328,8 @@ int main(int argc, char *argv[])
 // cv::VideoCapture cap("http://pi.local:5000/stream/video.mjpeg"); 
 // sudo service uv4l_raspicam restart
 // /etc/uv4l/uv4l-raspicam
-//sudo shutdown -h now
+// sudo killall -HUP mDNSResponder && echo macOS DNS Cache Reset
+// sudo shutdown -h now
+// uv4l --driver raspicam --auto-video_nr --width 1280 --height 960 --encoding mjpeg --server-option '--port=5000' --server-option '--bind-host-address=192.168.9.4'
+// dd if=/dev/video2 of=snapshot.jpeg bs=11M count=1
+// sudo apt-get --purge remove uv4l-raspicam-extras

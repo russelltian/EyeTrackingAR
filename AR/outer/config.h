@@ -14,8 +14,10 @@ typedef std::pair<int_pair,int_pair> pair_pair;
 class config
 {
 private:
-    unordered_map<int_pair, int_pair, boost::hash<int_pair>> map;
+    
 public:
+    unordered_map<int_pair, int_pair, boost::hash<int_pair>> map;
+    
     config(/* args */);
     config(const string && file_name);
 

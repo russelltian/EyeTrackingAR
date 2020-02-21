@@ -1,0 +1,7 @@
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/lib/libpupiltracker.a
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/include/pupiltracker/utils.h
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/include/pupiltracker/cvx.h
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/include/pupiltracker/high_resolution_timer.hpp
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/include/pupiltracker/timer.h
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/include/pupiltracker/ConicSection.h
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/include/pupiltracker/PupilTracker.h

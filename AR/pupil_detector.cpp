@@ -174,6 +174,8 @@ void pupil_detector::detect(const Mat& image, std::vector<cv::KeyPoint>& keypoin
         std::copy(newCenters.begin(), newCenters.end(), std::back_inserter(centers));
     }
 
+    int maxRepeatability = 0;
+
     for (size_t i = 0; i < centers.size(); i++)
     {
         
@@ -182,6 +184,9 @@ void pupil_detector::detect(const Mat& image, std::vector<cv::KeyPoint>& keypoin
             //std::cout<<"rejected due to minRepeatability"<<centers[i].size()<<std::endl;
             #endif
             continue;
+        }else if(centers[i].size() > maxRepeatability){
+            keypoints.clear();
+            maxRepeatability = centers[i].size();
         }
         Point2d sumPoint(0, 0);
         double normalizer = 0;
