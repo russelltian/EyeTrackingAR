@@ -6665,6 +6665,8 @@ boost/preprocessor/punctuation/is_begin_parens.hpp
 -
 boost/preprocessor/facilities/detail/is_empty.hpp
 -
+boost/preprocessor/variadic/has_opt.hpp
+-
 
 /usr/local/include/boost/preprocessor/facilities/overload.hpp
 boost/preprocessor/cat.hpp
@@ -7238,10 +7240,22 @@ boost/preprocessor/tuple/size.hpp
 boost/preprocessor/variadic/size.hpp
 -
 
+/usr/local/include/boost/preprocessor/variadic/detail/has_opt.hpp
+boost/preprocessor/config/config.hpp
+-
+boost/preprocessor/cat.hpp
+-
+
 /usr/local/include/boost/preprocessor/variadic/elem.hpp
 boost/preprocessor/cat.hpp
 -
 boost/preprocessor/config/config.hpp
+-
+
+/usr/local/include/boost/preprocessor/variadic/has_opt.hpp
+boost/preprocessor/config/config.hpp
+-
+boost/preprocessor/variadic/detail/has_opt.hpp
 -
 
 /usr/local/include/boost/preprocessor/variadic/size.hpp

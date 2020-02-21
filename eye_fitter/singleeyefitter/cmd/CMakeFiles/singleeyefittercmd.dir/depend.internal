@@ -313,6 +313,7 @@ cmd/CMakeFiles/singleeyefittercmd.dir/SingleEyeFitterCmd.cpp.o
  /usr/local/include/boost/core/no_exceptions_support.hpp
  /usr/local/include/boost/core/noinit_adaptor.hpp
  /usr/local/include/boost/core/noncopyable.hpp
+ /usr/local/include/boost/core/nvp.hpp
  /usr/local/include/boost/core/ref.hpp
  /usr/local/include/boost/core/scoped_enum.hpp
  /usr/local/include/boost/core/swap.hpp
@@ -346,6 +347,9 @@ cmd/CMakeFiles/singleeyefittercmd.dir/SingleEyeFitterCmd.cpp.o
  /usr/local/include/boost/filesystem.hpp
  /usr/local/include/boost/filesystem/config.hpp
  /usr/local/include/boost/filesystem/convenience.hpp
+ /usr/local/include/boost/filesystem/directory.hpp
+ /usr/local/include/boost/filesystem/exception.hpp
+ /usr/local/include/boost/filesystem/file_status.hpp
  /usr/local/include/boost/filesystem/fstream.hpp
  /usr/local/include/boost/filesystem/operations.hpp
  /usr/local/include/boost/filesystem/path.hpp
@@ -1950,7 +1954,9 @@ cmd/CMakeFiles/singleeyefittercmd.dir/SingleEyeFitterCmd.cpp.o
  /usr/local/include/boost/preprocessor/tuple/size.hpp
  /usr/local/include/boost/preprocessor/tuple/to_list.hpp
  /usr/local/include/boost/preprocessor/tuple/to_seq.hpp
+ /usr/local/include/boost/preprocessor/variadic/detail/has_opt.hpp
  /usr/local/include/boost/preprocessor/variadic/elem.hpp
+ /usr/local/include/boost/preprocessor/variadic/has_opt.hpp
  /usr/local/include/boost/preprocessor/variadic/size.hpp
  /usr/local/include/boost/preprocessor/variadic/to_seq.hpp
  /usr/local/include/boost/proto/args.hpp
@@ -2798,6 +2804,7 @@ cmd/CMakeFiles/singleeyefittercmd.dir/SingleEyeFitterCmd.cpp.o
  /usr/local/include/tbb/flow_graph.h
  /usr/local/include/tbb/flow_graph_abstractions.h
  /usr/local/include/tbb/global_control.h
+ /usr/local/include/tbb/info.h
  /usr/local/include/tbb/internal/_aggregator_impl.h
  /usr/local/include/tbb/internal/_allocator_traits.h
  /usr/local/include/tbb/internal/_concurrent_queue_impl.h

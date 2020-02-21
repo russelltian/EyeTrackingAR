@@ -673,7 +673,9 @@ lib/CMakeFiles/singleeyefitter.dir/SingleEyeFitter.cpp.o
  /usr/local/include/boost/preprocessor/tuple/rem.hpp
  /usr/local/include/boost/preprocessor/tuple/size.hpp
  /usr/local/include/boost/preprocessor/tuple/to_list.hpp
+ /usr/local/include/boost/preprocessor/variadic/detail/has_opt.hpp
  /usr/local/include/boost/preprocessor/variadic/elem.hpp
+ /usr/local/include/boost/preprocessor/variadic/has_opt.hpp
  /usr/local/include/boost/preprocessor/variadic/size.hpp
  /usr/local/include/boost/range.hpp
  /usr/local/include/boost/range/algorithm/equal.hpp
