@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+
+[RequireComponent(typeof(Camera))]
+class FlipScreen : MonoBehaviour
+{
+    /// <summary>
+    /// the material to flip with
+    /// </summary>
+    [SerializeField]
+    private Material material;
+
+    /// <summary>
+    /// a toggle to switch between screen sides
+    /// </summary>
+    private bool toggle;
+
+#if !UNITY_IOS
+    /// <summary>
+    /// disables itself if we are not on ios
+    /// </summary>
+    private void OnEnable()
+    {
+        enabled = false;
+    }
+#endif
+
+    /// <summary>
+    /// updates the toggle
+    /// </summary>
+    public void Update()
+    {
+        //toggle toggels between the two sides of the screen so when the eyes get rendered thay have the correct part of the screen
+        toggle = false;
+    }
+
+    /// <summary>
+    /// renders the image over the screen
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="destination"></param>
+    private void OnRenderImage(RenderTexture source, RenderTexture destination)
+    {
+        if (!isActiveAndEnabled || material == null)
+        {
+            Graphics.Blit(source, destination);
+            return;
+        }
+
+        material.SetTexture("_MainTex", source);
+
+        RenderTexture.active = destination;
+        GL.PushMatrix();
+        GL.LoadOrtho();
+        material.SetPass(0);
+        GL.Begin(GL.TRIANGLES);
+
+        float xmin = toggle ? 0 : 0.5f;
+        float offset = 0.5f;
+
+        GL.TexCoord2(xmin, 1);
+        GL.Vertex3(-1, -1, 0.5f);
+        GL.TexCoord2(xmin, 0);
+        GL.Vertex3(-1, 1, 0.5f);
+        GL.TexCoord2(xmin + offset, 1);
+        GL.Vertex3(1, -1, 0.5f);
+
+        GL.TexCoord2(xmin, 0);
+        GL.Vertex3(-1, 1, 0.5f);
+        GL.TexCoord2(xmin + offset, 0);
+        GL.Vertex3(1, 1, 0.5f);
+        GL.TexCoord2(xmin + offset, 1);
+        GL.Vertex3(1, -1, 0.5f);
+
+        GL.End();
+        GL.PopMatrix();
+
+        toggle = !toggle;
+    }
+}

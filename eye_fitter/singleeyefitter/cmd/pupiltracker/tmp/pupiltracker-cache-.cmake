@@ -1,0 +1,12 @@
+
+set(Boost_DIR "/usr/local/lib/cmake/Boost-1.72.0" CACHE PATH "Initial cache" FORCE)
+set(Boost_FILESYSTEM_LIBRARY_RELEASE "/usr/local/lib/libboost_filesystem.dylib" CACHE STRING "Initial cache" FORCE)
+set(Boost_INCLUDE_DIR "/usr/local/include" CACHE PATH "Initial cache" FORCE)
+set(Boost_SERIALIZATION_LIBRARY_RELEASE "/usr/local/lib/libboost_serialization.dylib" CACHE STRING "Initial cache" FORCE)
+set(Boost_SYSTEM_LIBRARY_RELEASE "/usr/local/lib/libboost_system.dylib" CACHE STRING "Initial cache" FORCE)
+set(OpenCV_DIR "/usr/local/lib/cmake/opencv4" CACHE PATH "Initial cache" FORCE)
+set(TBB_INCLUDE_DIR "/usr/local/include" CACHE PATH "Initial cache" FORCE)
+set(TBB_LIBRARY "/usr/local/lib/libtbb.dylib" CACHE STRING "Initial cache" FORCE)
+set(TBB_LIBRARY_DEBUG "TBB_LIBRARY_DEBUG-NOTFOUND" CACHE FILEPATH "Initial cache" FORCE)
+set(TBB_LIBRARY_RELEASE "/usr/local/lib/libtbb.dylib" CACHE FILEPATH "Initial cache" FORCE)
+set(TBB_ROOT_DIR "/usr/local" CACHE PATH "Initial cache" FORCE)
