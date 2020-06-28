@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/CMakeFiles/spii"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/CMakeFiles/spii.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/CMakeFiles/spii-complete.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/spii/src/spii-stamp/spii-install.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/spii/src/spii-stamp/spii-mkdir.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/spii/src/spii-stamp/spii-download.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/spii/src/spii-stamp/spii-update.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/spii/src/spii-stamp/spii-patch.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/spii/src/spii-stamp/spii-configure.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/spii/src/spii-stamp/spii-build.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/spii/src/spii-stamp/spii-runcmake.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"spii"
+		],
+		"name" : "spii"
+	}
+}

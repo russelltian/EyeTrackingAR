@@ -1,0 +1,21 @@
+# Hashes of file build rules.
+8e1a250d6073210c91614df914eb851c CMakeFiles/spii
+07e2e9b0c1a4b15ef204a1b7d4ae4818 CMakeFiles/spii-complete
+d85f2b1319eabeabce39d68b9eca40d7 cmd/CMakeFiles/pupiltracker
+5d69aa708fa843985c5993d3674522b5 cmd/CMakeFiles/pupiltracker-complete
+677014a721b74773b438282ae169a418 cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-build
+729e6da8c292d952b1108006fdca2edd cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-configure
+04066bb14fb1338756754d317eefb048 cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-download
+8b0a5aefd8ba5156201d669e60d0729d cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-install
+76670102f1971ab6a234eba98cf8acc0 cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-mkdir
+2274dc5f7aed7e6f43f615fe5091d89c cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-patch
+77b2ada61330cfed8429c972ea83554b cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-runcmake
+091b7c4cb99bf5865f604a928a6a12ba cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-update
+e3930b63728f276a86de58e21dbf7e57 spii/src/spii-stamp/spii-build
+f55141816b75659ba4e60f923634c62d spii/src/spii-stamp/spii-configure
+2b2706210aa042434cc29dcd9edd517f spii/src/spii-stamp/spii-download
+1b8ee347fdf56c5f345d0a92677940a0 spii/src/spii-stamp/spii-install
+9e8505331561c0ce3e4704e43222d3bd spii/src/spii-stamp/spii-mkdir
+d288688d7da8e04bffe5e61927bc8000 spii/src/spii-stamp/spii-patch
+ae32bb1d87ff30f40a8e5955e867af88 spii/src/spii-stamp/spii-runcmake
+ffc36a93316f7042fa0be4df891607b6 spii/src/spii-stamp/spii-update

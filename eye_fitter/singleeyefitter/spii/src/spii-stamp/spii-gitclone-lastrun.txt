@@ -1,0 +1,3 @@
+repository='https://github.com/PetterS/spii.git'
+module=''
+tag='origin'

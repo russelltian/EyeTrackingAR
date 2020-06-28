@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/CMakeFiles/pupiltracker"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/CMakeFiles/pupiltracker.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/CMakeFiles/pupiltracker-complete.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-install.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-mkdir.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-download.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-update.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-patch.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-configure.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-build.rule"
+		},
+		{
+			"file" : "/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-runcmake.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"pupiltracker"
+		],
+		"name" : "pupiltracker"
+	}
+}

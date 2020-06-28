@@ -1,0 +1,14 @@
+# Target labels
+ pupiltracker
+# Source files and their labels
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/CMakeFiles/pupiltracker
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/CMakeFiles/pupiltracker.rule
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/CMakeFiles/pupiltracker-complete.rule
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-install.rule
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-mkdir.rule
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-download.rule
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-update.rule
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-patch.rule
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-configure.rule
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-build.rule
+/Users/daweishi/Desktop/2019FALL/Capstone/AR/EyeTrackingAR/eye_fitter/singleeyefitter/cmd/pupiltracker/src/pupiltracker-stamp/pupiltracker-runcmake.rule
